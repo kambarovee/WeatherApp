@@ -2,35 +2,27 @@ package com.example.weatherapp
 
 import com.google.gson.annotations.SerializedName
 
-class WeatherResponse {
-    @SerializedName("sys")
-    var sys: Sys? = null
+data class WeatherResponse(
+    @SerializedName("sys") var sys: Sys,
+    @SerializedName("main") var main: Main
+)
 
-    @SerializedName("main")
-    var main: Main? = null
-}
-
-class Main {
+data class Main(
     @SerializedName("temp")
-    var temp: Float = 0.0f
-
+    var temp: Float = 0.0f,
     @SerializedName("humidity")
-    var humidity: Float = 0.0f
-
+    var humidity: Float = 0.0f,
     @SerializedName("pressure")
-    var pressure: Float = 0.0f
-
+    var pressure: Float = 0.0f,
     @SerializedName("temp_min")
-    var temp_min: Float = 0.0f
-
+    var temp_min: Float = 0.0f,
     @SerializedName("temp_max")
-    var temp_max: Float = 0.0f
-
+    var temp_max: Float = 0.0f,
     @SerializedName("name")
-    var name: String? = null
-}
+    var name: String
+)
 
-class Sys {
+data class Sys(
     @SerializedName("country")
-    var country: String? = null
-}
+    var country: String
+)
