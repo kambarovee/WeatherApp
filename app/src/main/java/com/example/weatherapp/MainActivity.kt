@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.weatherapp.databinding.ActivityMainBinding
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -18,22 +17,22 @@ class MainActivity : AppCompatActivity() {
     val viewModel: ViewModelClass by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        weatherData = binding.textView
-
-        editText = binding.editText
-        binding.button.setOnClickListener {
-            getCurrentData(editText?.text.toString())
-        }
+//        binding = ActivityMainBinding.inflate(layoutInflater)
+//        setContentView(binding.root)
+//        weatherData = binding.textView
+//
+//        editText = binding.editText
+//        binding.button.setOnClickListener {
+//            getCurrentData(editText?.text.toString())
+//        }
 
         initObserver()
     }
 
     private fun initObserver() {
 //        viewModel.liveData.observe(this, ::updateUI)
-
-        lifecycleScope.launchWhenStarted { viewModel.stateFLow.collect(::updateUI) }
+//        lifecycleScope.launchWhenStarted { viewModel.stateFLow.collect(::updateUI) }
+        lifecycleScope.launchWhenStarted { viewModel.weatherData.collect(::updateUI) }
     }
 
     fun updateUI(string: String) {

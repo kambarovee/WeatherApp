@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.weatherapp.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_emptyFragmentFirst"
+            app:destination="@id/emptyFragmentFirst" />
+        <action
+            android:id="@+id/action_mainFragment_to_emptyFragmentSecond"
+            app:destination="@id/emptyFragmentSecond" />
+        <action
+            android:id="@+id/action_mainFragment_to_emptyFragmentThird"
+            app:destination="@id/emptyFragmentThird" />
+    </fragment>
+    <fragment
+        android:id="@+id/emptyFragmentFirst"
+        android:name="com.example.weatherapp.EmptyFragmentFirst"
+        android:label="fragment_empty_first"
+        tools:layout="@layout/fragment_empty_first" >
+        <action
+            android:id="@+id/action_emptyFragmentFirst_to_emptyFragmentFromFirst"
+            app:destination="@id/emptyFragmentFromFirst" />
+    </fragment>
+    <fragment
+        android:id="@+id/emptyFragmentSecond"
+        android:name="com.example.weatherapp.EmptyFragmentSecond"
+        android:label="fragment_empty_second"
+        tools:layout="@layout/fragment_empty_second" />
+    <fragment
+        android:id="@+id/emptyFragmentThird"
+        android:name="com.example.weatherapp.EmptyFragmentThird"
+        android:label="fragment_empty_third"
+        tools:layout="@layout/fragment_empty_third" />
+    <fragment
+        android:id="@+id/emptyFragmentFromFirst"
+        android:name="com.example.weatherapp.EmptyFragmentFromFirst"
+        android:label="fragment_empty_from_first"
+        tools:layout="@layout/fragment_empty_from_first" />
+</navigation>
